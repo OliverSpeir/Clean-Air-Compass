@@ -11,7 +11,6 @@ export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
   session: {
     maxAge: 24 * 60 * 60,
-    strategy: "jwt",
   },
   callbacks: {
     async signIn({ user, account }) {
@@ -28,22 +27,14 @@ export default NextAuth({
             .then((response) => response.json())
             .then((data) => (user.auth_token = data));
           return true;
-        } catch (error) {
+        } catch {
           return false;
         }
       }
     },
-    async jwt({ token, user }) {
-      if (user) {
-        const { auth_token } = user;
-        token.auth_token = auth_token;
-      }
-      return token;
-    },
-
-    async session({ session, token }) {
-      if (token.auth_token) {
-        session.auth_token = token.auth_token;
+    async session({ session, user }) {
+      if (user.auth_token) {
+        session.auth_token = user.auth_token;
         return session;
       }
     },
