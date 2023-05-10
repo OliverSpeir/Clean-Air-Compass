@@ -1,9 +1,10 @@
-import Map from "./Map/DynamicMap";
+import Map from "./Map";
 import Sidebar from "./Sidebar/Sidebar";
 import { useState, useRef } from "react";
 import RightSidebarButton from "./RightSidebar/RightSidebarButton";
 import RightSidebar from "./RightSidebar/RightSidebar";
 import SidebarButton from "./Sidebar/Buttons/SidebarButton";
+import Chart from "./Chart";
 import AlertModal from "./AlertModal";
 import LocationModal from "./LocationModal";
 import AlertMessage from "./AlertMessage";
@@ -66,6 +67,7 @@ export default function Homepage() {
           isMapLoaded={isMapLoaded}
           setIsMapLoaded={setIsMapLoaded}
         />
+        <Chart />
         {showRightSidebar && (
           <RightSidebar
             sidebar_show={showRightSidebar}

@@ -1,5 +1,5 @@
 import RightSidebarButton from "./RightSidebarButton";
-import RightSideBarTitle from "./RightSideBarTitle";
+import RightTitle from "./RightTitle";
 import RightSideBarLinks from "./RightSideBarLinks";
 import RightSideBarSummary from "./RightSideBarSummary";
 
@@ -12,7 +12,7 @@ export default function RightSidebar(props) {
           set_show={props.set_show}
           text="X"
         />
-        <RightSideBarTitle />
+        <RightTitle />
         <RightSideBarSummary />
         <RightSideBarLinks />
       </div>
